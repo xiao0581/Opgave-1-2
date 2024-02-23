@@ -29,19 +29,19 @@ namespace BeersRepositoryLib.Tests
         {
             //testing the get method with the abvGreateThen
             BeersRepository beersRepository = new BeersRepository();
-            List<Beer> beer = beersRepository.Get(abvGreateThen: 5);
+            IEnumerable<Beer> beer = beersRepository.Get(abvGreateThen: 5);
             Assert.IsNotNull(beer);
-            Assert.AreEqual(6, beer[0].Abv);
+            Assert.AreEqual(6, beer.First().Abv);
 
             //testing the get method with the sortByName
-            List<Beer> beer2 = beersRepository.Get(sortBy: "Name");
+            IEnumerable<Beer> beer2 = beersRepository.Get(sortBy: "Name");
             Assert.IsNotNull(beer2);
-            Assert.AreEqual("Budweiser", beer2[0].Name);
+            Assert.AreEqual("Budweiser", beer2.First().Name);
 
             //testing the get method with the sortByAbv
-            List<Beer> beer3 = beersRepository.Get(sortBy: "Abv");
+            IEnumerable<Beer> beer3 = beersRepository.Get(sortBy: "Abv");
             Assert.IsNotNull(beer3);
-            Assert.AreEqual(5, beer3[0].Abv);
+            Assert.AreEqual(5, beer3.First().Abv);
         }
 
         [TestMethod()]

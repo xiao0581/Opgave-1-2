@@ -23,21 +23,23 @@ namespace BeersRepositoryLib
             return new List<Beer>(_beers);
         }
 
-        public List<Beer> Get(int abvGreateThen = 0, string? sortBy = null)
+        public IEnumerable<Beer> Get(int? abvGreateThen = null, string? sortBy = null)
         {
-            List<Beer> beers = new List<Beer>(_beers);
-            if (abvGreateThen != 0)
+            IEnumerable<Beer> beers = new List<Beer>(_beers);
+            if (abvGreateThen != null)
             {
-                return beers.FindAll(b => b.Abv > abvGreateThen);
+                beers = beers.Where(b => b.Abv > abvGreateThen);
             }
+            if(sortBy != null) { 
             switch (sortBy)
             {
                 case "Name":
-                    beers.Sort((b1, b2) => b1.Name.CompareTo(b2.Name));
+                    beers = beers.OrderBy(m=>m.Name);
                     break;
                 case "Abv":
-                    beers.Sort((b1, b2) => b1.Abv - b2.Abv);
+                    beers = beers.OrderBy(m => m.Abv);
                     break;
+            }
             }
             return beers;
 
