@@ -15,6 +15,7 @@ namespace BeersRepositoryLib
             new Beer() { Id = 2, Name = "Heineken",Abv = 6},
             new Beer() { Id = 3, Name = "Corona",Abv = 7},
             new Beer() { Id = 4, Name = "Guinness",Abv = 8},
+            new Beer() { Id = 4, Name = "Guinness",Abv = 9},
 
         };
 

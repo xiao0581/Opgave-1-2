@@ -21,7 +21,7 @@ namespace BeersRepositoryLib.Tests
             List<Beer> beers = beersRepository.Get();
 
             //assert
-            Assert.AreEqual(4, beers.Count);
+            Assert.AreEqual(5, beers.Count);
         }
 
         [TestMethod()]
@@ -61,7 +61,7 @@ namespace BeersRepositoryLib.Tests
             Beer beer = new Beer() { Name = "Stella", Abv = 5 };
             beersRepository.Add(beer);
             List<Beer> beers = beersRepository.Get();
-            Assert.AreEqual(5, beers.Count);
+            Assert.AreEqual(6, beers.Count);
         }
 
         [TestMethod()]
